@@ -42,7 +42,7 @@ var adidasRegions = {
         'countryDomain': 'adidas.com.au',
         'sslEnabled': false,
         'languageCode': 'en_AU',
-        'mediaDomain': '',
+        'mediaDomain': 'http://demandware.edgesuite.net/sits_pod14-adidas/dw/image/v2/aagl_prd/on/demandware.static/-/Sites-adidas-products/default/dw9c33f40c/zoom/',
         'clientStockUrl': 'http://production.store.adidasgroup.demandware.net/s/adidas-AU/dw/shop/v16_9/products/',
         'variantStockUrl': 'http://www.adidas.com.au/on/demandware.store/Sites-adidas-AU-Site/en_AU/Product-GetVariants',
         'clientIds': [
@@ -85,7 +85,10 @@ function setPage(stock, imgSrc) {
         $('#productName').html('');
     }
 
+    var s = 0;
     $.each(stock.variants, function (index, value) {
+        s += value.stock;
+
         var klass;
         if (value.stock == 0) {
             klass = 'out-of-stock';
@@ -102,7 +105,11 @@ function setPage(stock, imgSrc) {
             '</div>');
     });
 
-    $('.totalStock').html('Total stock: ' + stock.totalStock);
+    if (stock.totalStock == 0) {
+        $('.totalStock').html('Total stock: ' + s);
+    } else {
+        $('.totalStock').html('Total stock: ' + stock.totalStock);
+    }
 
     // $('#dump').html(JSON.stringify(stock));
     $('#stock').show();
