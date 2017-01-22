@@ -1,0 +1,111 @@
+body {
+    font-family: YeezyzTStar, adihausbold, Arial;
+}
+
+p.bold {
+    color: #212121;
+    line-height: 1.4;
+    font-weight: bold;
+}
+
+p.light {
+    font-weight: normal;
+}
+
+.top-right {
+    padding-top: 36px;
+}
+
+#loading, #stock {
+    display: none;
+    margin-top: 24px;
+}
+
+#productName {
+    margin-top: 12px;
+}
+
+#productColor {
+    margin-top: -10px;
+}
+
+.stock-levels {
+    text-align: center;
+}
+
+.stock-block {
+    border: 3px solid;
+    border-radius: 4px;
+    height: 100px;
+    margin: 3px;
+    width: 115px;
+    float: left;
+}
+
+.out-of-stock {
+    border-color: rgba(15, 15, 15, 0.09);
+    opacity: 0.6;
+}
+
+.in-stock {
+    border-color: rgba(9, 158, 43, 0.6);
+}
+
+.low-stock {
+    border-color: rgba(255, 152, 0, 0.6);
+}
+
+p.size {
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+p.stocking {
+    font-size: 36px;
+    margin-top: -4px;
+}
+
+p.tooltext {
+    font-size: 10px;
+    margin-top: -14px;
+}
+
+.productImage {
+    height: 140px;
+    width: 140px;
+    margin-top: 4px;
+}
+
+input#show {
+    float: left;
+}
+
+span.show {
+    float: left;
+    margin-right: 5px;
+    margin-top: 0px;
+}
+
+.shw {
+    padding-bottom: 8px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 50px;
+    padding: 16px;
+}
+
+@media all and (max-width: 550px) {
+    .top-right {
+        padding-top: 0px;
+    }
+}
+
+@media all and (max-width: 1200px) {
+    p.size {
+        font-size: 9px;
+    }
+}

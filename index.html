@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Adidas Stock Checker :: YZY.IO Tools</title>
+
+    <meta name="description" content="Check real-time Adidas stock levels. Check NMD and Yeezy stock live in your browser! Support for US, CA, US and AU.">
+    <meta name="keywords"
+          content="Adidas, bot, stock, checker, python, javascript, free, online, realtime, europe, usa, america, canada, webstore, website, retail, resell, heatedsneaks, kanye west, yeezy, boost, nmd">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="/assets/fonts.css">
+
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@yzyio"/>
+    <meta name="twitter:title" content="Online Adidas stock checker"/>
+    <meta name="twitter:description" content="View total and specific stock for Adidas NMD, Yeezy or other items."/>
+    <meta name="twitter:image" content="http://tools.yzy.io/assets/logo.png"/>
+</head>
+<body>
+<div class="container">
+    <div class="modal fade" tabindex="-1" role="dialog" id="donationModal" aria-labelledby="donationModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Donate</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="bold">Donators who have donated more than &euro; 3,00 are placed at the bottom of the page.</p>
+                    <form action="">
+                        <!--<div class="form-group">-->
+                        <!--Donation amount (&euro;)-->
+                        <!--<input type="number" value="5" min="1" name="amount" id="amount" class="form-control" required>-->
+                        <!--</div>-->
+                        <div class="form-group">
+                            Twitter username (optional)
+                            <input type="text" name="twitter" id="twitter" class="form-control">
+                        </div>
+                        <div class="form-group shw">
+                            <input type="checkbox" name="show" id="show" checked><span class="show">Add me as donator on the page</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary donate">Donate with PayPal</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="top">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="pull-left">
+                    <h1>YZY.IO
+                        <small>Adidas Stock Checker</small>
+                    </h1>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="pull-right">
+                    <div class="top-right text-right">
+                        <a href="https://github.com/yzyio/adidas-stock-checker" target="_blank">Source Code</a> - <a href="https://twitter.com/TerryBommels" target="_blank">Twitter</a> - <a href="/#" data-toggle="modal"
+                                                                                                                                                                         data-target="#donationModal">Donate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <form action="" class="st">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-3">
+                        Product ID
+                        <input type="text" id="productId" class="form-control" placeholder="SKU / Product ID (Example: B42746)" required>
+                    </div>
+                    <div class="col-md-3">
+                        Stock region
+                        <select name="region" id="stockRegion" class="form-control" required></select>
+                    </div>
+                    <div class="col-md-4">
+                        Client ID
+                        <input type="text" id="clientId" placeholder="Client ID" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <br>
+                        <input type="submit" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="stock-content">
+            <div id="loading">Loading...</div>
+            <div id="stock">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center">
+                            <img src="" class="img-rounded productImage" onerror="this.src='/assets/empty-bg.jpg';">
+                            <p class="bold" id="productName"></p>
+                            <p class="light" id="productColor"></p>
+
+                            <p class="bold totalStock"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="stock-levels">
+
+                        </div>
+                        <div id="dump"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    Donators:
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="assets/index.js"></script>
+</body>
+</html>
