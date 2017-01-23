@@ -98,7 +98,23 @@ span.show {
     padding: 16px;
 }
 
+@media all and (max-width: 500px) {
+    .stock-block {
+        width: 31%;
+    }
+}
+
+@media all and (max-width: 980px) {
+    input, select {
+        margin-bottom: 8px;
+    }
+}
+
 @media all and (max-width: 550px) {
+    h1 small {
+        font-size: 55%;
+    }
+
     .top-right {
         padding-top: 0px;
     }
