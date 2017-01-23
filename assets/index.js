@@ -187,12 +187,14 @@ function lookupClient(sku, clientId, adidasRegion) {
                     stock = {};
                 }
             });
+        } else {
+            stock.totalStock = 0;
         }
     });
 }
 
 function lookupVariant(sku, clientId, adidasRegion) {
-    if (Object.keys(stock).length == 0) {
+    if (Object.keys(stock).length == 0 || stock.totalStock == 0) {
         var region = adidasRegions[adidasRegion];
         var variantUrl = region.variantStockUrl + '?pid=' + sku;
 
