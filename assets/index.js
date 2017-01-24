@@ -278,6 +278,11 @@ $(function () {
         e.preventDefault();
 
         setUrl($('#productId').val(), $('#stockRegion').val());
+        ga('send', 'event', {
+            'eventCategory': 'Stock',
+            'eventAction': 'Searched',
+            'eventLabel': $('#productId').val()
+        });
 
         $('#loading').fadeIn('slow');
         $('#stock').hide();
