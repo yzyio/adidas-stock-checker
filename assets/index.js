@@ -25,18 +25,6 @@ var adidasRegions = {
             '5e396c6-5589-425b-be03-774c21a74702'
         ]
     },
-    'Europe / United Kingdom': {
-        'countryCode': 'GB',
-        'domain': 'adidas.co.uk',
-        'sslEnabled': false,
-        'languageCode': 'en_GB',
-        'mediaDomain': 'http://demandware.edgesuite.net/sits_pod14-adidas/dw/image/v2/aagl_prd/on/demandware.static/-/Sites-adidas-products/default/dw61d1f696/zoom/',
-        'clientStockUrl': 'http://production.store.adidasgroup.demandware.net/s/adidas-NL/dw/shop/v16_9/products/',
-        'variantStockUrl': 'http://www.adidas.nl/on/demandware.store/Sites-adidas-NL-Site/nl_NL/Product-GetVariants',
-        'clientIds': [
-            '2904a24b-e4b4-4ef7-89a4-2ebd2d175dde'
-        ]
-    },
     'Australia / New Zealand': {
         'countryCode': 'AU',
         'countryDomain': 'adidas.com.au',
@@ -47,6 +35,30 @@ var adidasRegions = {
         'variantStockUrl': 'http://www.adidas.com.au/on/demandware.store/Sites-adidas-AU-Site/en_AU/Product-GetVariants',
         'clientIds': [
             '75e396c6-5589-425b-be03-774c21a74702'
+        ]
+    },
+    'Europe / United Kingdom (UK Sizing)': {
+        'countryCode': 'GB',
+        'domain': 'adidas.co.uk',
+        'sslEnabled': false,
+        'languageCode': 'en_GB',
+        'mediaDomain': 'http://demandware.edgesuite.net/sits_pod14-adidas/dw/image/v2/aagl_prd/on/demandware.static/-/Sites-adidas-products/default/dw61d1f696/zoom/',
+        'clientStockUrl': 'http://production.store.adidasgroup.demandware.net/s/adidas-GB/dw/shop/v16_9/products/',
+        'variantStockUrl': 'http://www.adidas.nl/on/demandware.store/Sites-adidas-GB-Site/nl_NL/Product-GetVariants',
+        'clientIds': [
+            '2904a24b-e4b4-4ef7-89a4-2ebd2d175dde'
+        ]
+    },
+    'Europe / United Kingdom (EU Sizing)': {
+        'countryCode': 'DE',
+        'domain': 'adidas.de',
+        'sslEnabled': false,
+        'languageCode': 'de_DE',
+        'mediaDomain': 'http://demandware.edgesuite.net/sits_pod14-adidas/dw/image/v2/aagl_prd/on/demandware.static/-/Sites-adidas-products/default/dw61d1f696/zoom/',
+        'clientStockUrl': 'http://production.store.adidasgroup.demandware.net/s/adidas-DE/dw/shop/v16_9/products/',
+        'variantStockUrl': 'http://www.adidas.nl/on/demandware.store/Sites-adidas-DE-Site/de_DE/Product-GetVariants',
+        'clientIds': [
+            '2904a24b-e4b4-4ef7-89a4-2ebd2d175dde'
         ]
     }
 };
