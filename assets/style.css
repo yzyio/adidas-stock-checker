@@ -126,10 +126,6 @@ span.show {
     }
 }
 
-body {
-  margin: 50px;
-}
-
 /* auto reload refresh-timer */
 .refresh-timer {
     height: 5px;
