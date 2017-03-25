@@ -1,4 +1,4 @@
-var stock = {}, logger = [];
+var stock = {}, logger = [], autoRefreshEnabled = false;
 
 var adidasRegions = {
     'United States': {
@@ -278,6 +278,42 @@ function loadUrl() {
     }
 }
 
+function autoRefresh() {
+    $('#timer').removeClass('refresh-timer');
+    if (!autoRefreshEnabled) 
+        return;
+
+    getStocks();    
+    $('#timer').addClass('refresh-timer');
+}
+
+function getStocks() {
+    setUrl($('#productId').val(), $('#stockRegion').val());
+    ga('send', 'event', {
+        'eventCategory': 'Stock',
+        'eventAction': 'Searched',
+        'eventLabel': $('#productId').val()
+    });
+
+    $('#loading').fadeIn('slow');
+    $('#stock').hide();
+
+    stock = {};
+    logger = [];
+
+    // Client Lookup
+    lookupClient($('#productId').val(), $('#clientId').val(), $('#stockRegion').val());
+
+    // Variant Lookup Fallback
+    var variant = function () {
+        lookupVariant($('#productId').val(), $('#clientId').val(), $('#stockRegion').val())
+    };
+    setTimeout(variant, 2121);
+
+    // Check if there is stock retrieved
+    setTimeout(checkIfStock, 3000);
+}
+
 $(function () {
     loadRegions();
     loadUrl();
@@ -288,31 +324,7 @@ $(function () {
 
     $('form.st').submit(function (e) {
         e.preventDefault();
-
-        setUrl($('#productId').val(), $('#stockRegion').val());
-        ga('send', 'event', {
-            'eventCategory': 'Stock',
-            'eventAction': 'Searched',
-            'eventLabel': $('#productId').val()
-        });
-
-        $('#loading').fadeIn('slow');
-        $('#stock').hide();
-
-        stock = {};
-        logger = [];
-
-        // Client Lookup
-        lookupClient($('#productId').val(), $('#clientId').val(), $('#stockRegion').val());
-
-        // Variant Lookup Fallback
-        var variant = function () {
-            lookupVariant($('#productId').val(), $('#clientId').val(), $('#stockRegion').val())
-        };
-        setTimeout(variant, 2121);
-
-        // Check if there is stock retrieved
-        setTimeout(checkIfStock, 3000);
+        getStocks();
     });
 
     $('.donate').click(function () {
@@ -324,5 +336,20 @@ $(function () {
 
         var url = 'https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=paypal%40yzy%2eio&lc=US&item_name=YZYIO%20Donation&item_number=' + ref + '&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest'
         window.open(url);
+    });
+
+    $('.auto-refresh').click(function() {
+        autoRefreshEnabled = !autoRefreshEnabled;
+        if (autoRefreshEnabled) {
+            $(this).addClass('btn-primary');
+            toastr.success('Auto refresh enabled');
+        }
+        else {
+            $(this).removeClass('btn-primary');
+            toastr.success('Auto refresh disabled');
+            $('#timer').removeClass('refresh-timer');
+        }
+        autoRefresh();
+        setInterval(autoRefresh, 60000);        
     });
 });

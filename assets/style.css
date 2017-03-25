@@ -125,3 +125,24 @@ span.show {
         font-size: 9px;
     }
 }
+
+body {
+  margin: 50px;
+}
+
+/* auto reload refresh-timer */
+.refresh-timer {
+    height: 5px;
+    width: 0%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
+    animation: refresh-timer 60s linear infinite;
+}
+
+@keyframes refresh-timer {
+  0%   { width: 0%; }
+  100% { width: 100%; }
+}
+
