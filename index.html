@@ -26,6 +26,7 @@
     <meta name="twitter:image" content="http://tools.yzy.io/assets/logo.png"/>
 </head>
 <body>
+<div id="timer"></div>
 <div class="container">
     <div class="modal fade" tabindex="-1" role="dialog" id="donationModal" aria-labelledby="donationModal">
         <div class="modal-dialog" role="document">
@@ -79,7 +80,7 @@
         <form action="" class="st" id="lookupStock">
             <div class="form-group">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         Product ID
                         <input type="text" id="productId" class="form-control" placeholder="SKU / Product ID (Example: B42746)" required>
                     </div>
@@ -95,9 +96,18 @@
                         <br>
                         <input type="submit" class="form-control">
                     </div>
+                    <div class="col-md-1">
+                        <br>
+                        <button type="button" class="btn btn-default auto-refresh form-control" title="auto refresh">
+                            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </form>
+
+
+
 
         <div class="stock-content">
             <div id="loading">Loading...</div>
@@ -105,7 +115,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="text-center">
-                            <img src="" class="img-rounded productImage" onerror="this.src='/assets/empty-bg.jpg';">
+                            <img src="" class="img-rounded productImage">
                             <p class="bold" id="productName"></p>
                             <p class="light" id="productColor"></p>
 
