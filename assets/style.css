@@ -104,6 +104,12 @@ span.show {
     height: auto;
 }
 
+.options span.au:hover, .options span.au.active {
+    color: #3498db;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 @media all and (max-width: 500px) {
     .stock-block {
         width: 31%;

@@ -241,7 +241,10 @@ function checkIfStock() {
     if (Object.keys(stock).length == 0) {
         toastr.error("Product ID not loaded into Adidas site");
         $('#loading').fadeOut('slow');
+        return false
     }
+
+    return true;
 }
 
 function setUrl(pid, region, clientId) {
@@ -290,12 +293,40 @@ function loadUrl() {
     }
 }
 
+function setLastUpdate() {
+    var d = new Date();
+    $('#lastupdate').html(d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds());
+}
+
+function doAutoUpdate() {
+    if ($('#productId').val() != "") {
+        $('#loading').html('Updating...');
+        $('form.st').submit();
+        toastr.info("Auto update started");
+    }
+}
+
 $(function () {
+    var autoUpdate = true;
+    var initialLoad = false;
+
     loadRegions();
     loadUrl();
 
     $("select").change(function () {
         $('#clientId').val(adidasRegions[$('select').val()]['clientIds'][0]);
+    });
+
+    $(".au").click(function () {
+        if (autoUpdate) {
+            $('.no').addClass('active');
+            $('.yes').removeClass('active');
+        } else {
+            $('.yes').addClass('active');
+            $('.no').removeClass('active');
+        }
+
+        autoUpdate = !autoUpdate;
     });
 
     $('form.st').submit(function (e) {
@@ -325,9 +356,18 @@ $(function () {
         };
         setTimeout(variant, 2121);
 
-        // Check if there is stock retrieved
+        // Check if there is stock retrieved and set update time
+        setLastUpdate();
+        initialLoad = true;
         setTimeout(checkIfStock, 3500);
     });
+
+    // Every 2 min
+    setInterval(function () {
+        if (autoUpdate && initialLoad) {
+            doAutoUpdate();
+        }
+    }, 2 * 60 * 1000);
 
     $('.donate').click(function () {
         var twitterHandle = $('#twitter').val();
