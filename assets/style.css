@@ -98,10 +98,20 @@ span.show {
     padding: 16px;
 }
 
-.partner {
+.info {
     margin-top: 24px;
     width: 100%;
     height: auto;
+}
+
+.info img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.info img.mobile {
+    display: none;
 }
 
 .options span.au:hover, .options span.au.active {
@@ -119,6 +129,25 @@ span.show {
 @media all and (max-width: 980px) {
     input, select {
         margin-bottom: 8px;
+    }
+
+    .info img.desktop {
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 700px) {
+    .info img.desktop {
+        display: none;
+    }
+    .info img.mobile {
+        display: block;
+    }
+}
+
+@media all and (max-width: 365px) {
+    .info img.mobile {
+        width: 100%;
     }
 }
 
