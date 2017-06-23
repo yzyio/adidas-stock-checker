@@ -244,9 +244,14 @@ function checkIfStock() {
     }
 }
 
-function setUrl(pid, region) {
-    var region = adidasRegions[region].countryCode;
-    var parameters = '?pid=' + pid + '&region=' + region;
+function setUrl(pid, region, clientId) {
+    var region = adidasRegions[region];
+    var parameters = '?pid=' + pid + '&region=' + region.countryCode;
+
+    if (clientId != region.clientIds[0]) {
+        parameters += '&clientid=' + clientId;
+    }
+
     window.history.pushState('query', pid, parameters);
 }
 
@@ -262,6 +267,7 @@ function loadUrl() {
 
     var pid = gup('pid', location.href);
     var region = gup('region', location.href);
+    var clientid = gup('clientid', location.href);
 
     if (pid != null && region != null) {
         var adiRegion;
@@ -269,12 +275,18 @@ function loadUrl() {
             if (adidasRegions[r].countryCode == region) {
                 adiRegion = r;
                 $('#stockRegion').val(r);
-                $('#clientId').val(adidasRegions[r].clientIds[0]);
+                if (clientid == null) {
+                    $('#clientId').val(adidasRegions[r].clientIds[0]);
+                }
                 break;
             }
         }
 
         $('#productId').val(pid);
+    }
+
+    if (clientid != null) {
+        $('#clientId').val(clientid);
     }
 }
 
@@ -289,7 +301,7 @@ $(function () {
     $('form.st').submit(function (e) {
         e.preventDefault();
 
-        setUrl($('#productId').val(), $('#stockRegion').val());
+        setUrl($('#productId').val(), $('#stockRegion').val(), $('#clientId').val());
         ga('send', 'event', {
             'eventCategory': 'Stock',
             'eventAction': 'Searched',
