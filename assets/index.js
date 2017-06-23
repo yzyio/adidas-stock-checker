@@ -31,7 +31,7 @@ var adidasRegions = {
         'sslEnabled': false,
         'languageCode': 'en_AU',
         'mediaDomain': 'http://demandware.edgesuite.net/sits_pod14-adidas/dw/image/v2/aagl_prd/on/demandware.static/-/Sites-adidas-products/default/dw9c33f40c/zoom/',
-        'clientStockUrl': 'http://production.store.adidasgroup.demandware.net/s/adidas-AU/dw/shop/v16_9/products/',
+        'clientStockUrl': null,
         'variantStockUrl': 'http://www.adidas.com.au/on/demandware.store/Sites-adidas-AU-Site/en_AU/Product-GetVariants',
         'clientIds': [
             '75e396c6-5589-425b-be03-774c21a74702'
@@ -303,7 +303,9 @@ $(function () {
         logger = [];
 
         // Client Lookup
-        lookupClient($('#productId').val(), $('#clientId').val(), $('#stockRegion').val());
+        if (adidasRegions[$('#stockRegion').val()].clientStockUrl) {
+            lookupClient($('#productId').val(), $('#clientId').val(), $('#stockRegion').val());
+        }
 
         // Variant Lookup Fallback
         var variant = function () {
@@ -312,7 +314,7 @@ $(function () {
         setTimeout(variant, 2121);
 
         // Check if there is stock retrieved
-        setTimeout(checkIfStock, 3000);
+        setTimeout(checkIfStock, 3500);
     });
 
     $('.donate').click(function () {
