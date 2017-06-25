@@ -120,6 +120,12 @@ span.show {
     text-decoration: underline;
 }
 
+.partner {
+    width: 100%;
+    height: auto;
+    margin-top: 24px;
+}
+
 @media all and (max-width: 500px) {
     .stock-block {
         width: 31%;
