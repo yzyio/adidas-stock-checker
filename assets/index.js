@@ -10,6 +10,7 @@ var adidasRegions = {
         'clientStockUrl': 'https://production-us-adidasgroup.demandware.net/s/adidas-US/dw/shop/v15_6/products/',
         'variantStockUrl': 'http://www.adidas.com/on/demandware.store/Sites-adidas-US-Site/en_US/Product-GetVariants',
         'clientIds': [
+            '392f521c-cf82-4c24-8ee4-97b4bfe926c5',
             'bb1e6193-3c86-481e-a440-0d818af5f3c8'
         ]
     },
@@ -22,6 +23,7 @@ var adidasRegions = {
         'clientStockUrl': 'https://production-us-adidasgroup.demandware.net/s/adidas-CA/dw/shop/v15_6/products/',
         'variantStockUrl': 'http://www.adidas.ca/on/demandware.store/Sites-adidas-CA-Site/en_CA/Product-GetVariants',
         'clientIds': [
+            'd6aadd76-10c6-4b6c-bffc-33e4af2f6349',
             '5e396c6-5589-425b-be03-774c21a74702'
         ]
     },
@@ -46,6 +48,7 @@ var adidasRegions = {
         'clientStockUrl': 'http://production.store.adidasgroup.demandware.net/s/adidas-GB/dw/shop/v16_9/products/',
         'variantStockUrl': 'http://www.adidas.nl/on/demandware.store/Sites-adidas-GB-Site/nl_NL/Product-GetVariants',
         'clientIds': [
+            'c1f3632f-6d3a-43f4-9987-9de920731dcb',
             '2904a24b-e4b4-4ef7-89a4-2ebd2d175dde'
         ]
     },
@@ -58,6 +61,7 @@ var adidasRegions = {
         'clientStockUrl': 'http://production.store.adidasgroup.demandware.net/s/adidas-DE/dw/shop/v16_9/products/',
         'variantStockUrl': 'http://www.adidas.nl/on/demandware.store/Sites-adidas-DE-Site/de_DE/Product-GetVariants',
         'clientIds': [
+            'c1f3632f-6d3a-43f4-9987-9de920731dcb',
             '2904a24b-e4b4-4ef7-89a4-2ebd2d175dde'
         ]
     }
