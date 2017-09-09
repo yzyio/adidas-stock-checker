@@ -2,6 +2,5 @@
 Demo: http://tools.yzy.io/adidas-stock-checker/
 
 ### Todo list
-- [ ] Auto refresh
+- [x] Auto refresh
 - [ ] Desktop notifications
-- [ ] API
